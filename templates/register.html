@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login Page</title>
+        <link rel="stylesheet" href="format.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/format.css') }}">
+
+    </head>
+	<body>
+        <div id="divLogin">
+            <h1>Chat App Register</h1>
+            <!-- form containing user login and password -->
+            <form action="/register/" method="POST">
+            {% block content %}
+                <!-- user creates username -->
+                <label for="user">Username:</label>
+                <input type="text" name="user" value="{{u}}" />
+                 <br>
+                <!--user associates email-->
+                 <label for="user">email:</label>
+                 <input type="text" name="email" value="{{e}}" />
+                 <br>
+                 <!-- user creates password -->
+                <label for="pass">Password:</label>
+                <input type="text" name="pass0" value="{{p0}}" />
+                <br>
+                 <!-- user confirms password password -->
+                 <label for="pass">Confirm Password:</label>
+                 <input type="text" name="pass1" value="{{p1}}" />
+                <br><br>
+                <input type="submit" class="inner" value="Register" />
+            </form>
+
+                <br>
+                <label id="failed">{{failure}}</label>
+            {% endblock %}
+         
+        </div>
+
+    </body>

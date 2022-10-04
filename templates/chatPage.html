@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Page</title>
+        <link rel="stylesheet" href="format.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/format.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    </head>
+	<body>
+        <div id="divLogin">
+       
+        {% block content %}
+            <label>Your profile! Chat App Logged in as {{name}}</label>
+            <br><br>
+            <h2 id="user_name">User: {{name}}</h2>
+            <label>Type your message here:</label>
+            <br>
+
+            <form >
+                <textarea id="user_input" name="user_input" rows="4" cols="50"></textarea>
+                <br>
+                <input type="button" id="theButton" value="enter" />
+            </form>
+            <br>
+            <textarea id="cw" name="cw" rows="20" cols="50"></textarea>
+            
+
+            <!-- signout -->
+            <form action="/logout/" method="POST">
+                <input id="so" type = "hidden" name = "signout" value={{name}} />
+                <input type="submit" class="inner" value="Sign Out" />
+            </form>
+            
+
+        
+        {% endblock %}
+    </div>
+    
+    </body>
+</html>
